@@ -40,4 +40,17 @@ class Fighter:
         else:
             return "У бойца нет оружия!"
 
+### Шаг 4: Реализация класса Monster и механизма боя
+
+class Monster:
+    def __init__(self, name):
+        self.name = name
+
+    def defeated(self):
+        return f"{self.name} побежден!"
+
+# Функция для демонстрации боя
+def battle(fighter: Fighter, monster: Monster):
+    print(fighter.attack())
+    print(monster.defeated())
 
