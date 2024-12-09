@@ -54,3 +54,19 @@ def battle(fighter: Fighter, monster: Monster):
     print(fighter.attack())
     print(monster.defeated())
 
+### Пример использования программы
+
+#Теперь мы можем использовать все эти классы для демонстрации работы программы:
+
+if __name__ == "__main__":
+    # Создаем бойца и монстра
+    fighter = Fighter("Боец-1")
+    monster = Monster("Монстр-1")
+
+    # Боец выбирает меч
+    fighter.choose_weapon(Sword())
+    battle(fighter, monster)
+
+    # Боец меняет оружие на лук
+    fighter.change_weapon(Bow())
+    battle(fighter, monster)
