@@ -17,8 +17,11 @@ class Sword(Weapon):
 
 class Bow(Weapon):
     def attack(self):
-        return "Боец наносит удар из лука."
+        return "Боец стреляет из лука."
 
+class Rifle(Weapon):
+    def attack(self):
+        return "Боец стреляет из винтовки."
 ### Шаг 3: Модификация класса Fighter
 
 class Fighter:
@@ -61,12 +64,21 @@ def battle(fighter: Fighter, monster: Monster):
 if __name__ == "__main__":
     # Создаем бойца и монстра
     fighter = Fighter("Боец-1")
-    monster = Monster("Монстр-1")
+    monster1 = Monster("Монстр-1")
+    monster2 = Monster("Монстр-2")
+    monster3 = Monster("Монстр-3")
+
+    # У бойца нет оружия
+    battle(fighter, monster1)
 
     # Боец выбирает меч
     fighter.choose_weapon(Sword())
-    battle(fighter, monster)
+    battle(fighter, monster1)
 
     # Боец меняет оружие на лук
     fighter.change_weapon(Bow())
-    battle(fighter, monster)
+    battle(fighter, monster2)
+
+    # Боец меняет оружие на винтовку
+    fighter.change_weapon(Rifle())
+    battle(fighter, monster3)
