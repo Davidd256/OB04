@@ -11,7 +11,6 @@ class Weapon(ABC):
 
 ### Шаг 2: Реализация конкретных типов оружия
 
-
 class Sword(Weapon):
     def attack(self):
         return "Боец наносит удар мечом."
@@ -20,5 +19,25 @@ class Bow(Weapon):
     def attack(self):
         return "Боец наносит удар из лука."
 
+### Шаг 3: Модификация класса Fighter
+
+class Fighter:
+    def __init__(self, name):
+        self.name = name
+        self.weapon = None  # Оружие еще не выбрано
+
+    def choose_weapon(self, weapon: Weapon):
+        self.weapon = weapon
+        print(f"{self.name} выбирает {type(weapon).__name__.lower()}.")
+
+    def change_weapon(self, new_weapon: Weapon):
+        self.weapon = new_weapon
+        print(f"{self.name} меняет оружие на {type(new_weapon).__name__.lower()}.")
+
+    def attack(self):
+        if self.weapon:
+            return self.weapon.attack()
+        else:
+            return "У бойца нет оружия!"
 
 
